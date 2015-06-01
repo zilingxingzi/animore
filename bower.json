@@ -1,0 +1,26 @@
+{
+	"name": "monior-web",
+	"version": "0.0.1",
+	"authors": [
+		"金台 <jintai.yzq@taobao.com>"
+	],
+	"license": "MIT",
+	"ignore": [
+		"**/.*",
+		"node_modules",
+		"bower_components",
+		"demo",
+		"test",
+		"tests"
+	],
+	"dependencies": {
+		"bootstrap": "*",
+		"brix-event": "*",
+		"handlebars": "*",
+		"requirejs": "*",
+		"require-css": "*",
+		"requirejs-text": "*",
+		"jquery": "*",
+	    "underscore": "*"
+	}
+}

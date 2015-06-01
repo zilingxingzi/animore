@@ -1,0 +1,104 @@
+
+//border-radius 手机端全支持，不需要写私有前缀
+
+//圆型
+.round(@bd-radius) {
+	width: 0;
+	height: 0;
+	border-radius: @bd-radius;
+	border-width: @bd-radius;
+	border-style: solid;
+	display: inline-block;
+}
+
+.arrow(@width) {
+    border-style: solid;
+    border-width: @width;
+    width: 0;
+    height: 0;
+}
+.arrow-tp {
+    border-top-color: transparent;
+    border-right-color: transparent;
+    border-left-color: transparent;
+}
+.arrow-bt {
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+}
+.transition(@arguments) {
+	-webkit-transition: @arguments;
+	 -moz-transition:   @arguments;
+	  -ms-transition:   @arguments;
+	   -o-transition:   @arguments;
+	      transition:   @arguments;
+}
+.transform(@string){
+    -webkit-transform: @string;
+    -moz-transform:    @string;
+    -ms-transform:     @string;
+    -o-transform:      @string;
+}
+.translate (@x, @y:0) {
+    -webkit-transform: translate(@x, @y);
+    -moz-transform:    translate(@x, @y);
+    -ms-transform:     translate(@x, @y);
+    -o-transform:      translate(@x, @y);
+}
+.translate3d (@x, @y: 0, @z: 0) {
+    -webkit-transform: translate3d(@x, @y, @z);
+    -moz-transform:    translate3d(@x, @y, @z);
+    -ms-transform:     translate3d(@x, @y, @z);
+    -o-transform:      translate3d(@x, @y, @z);
+}
+.rotate (@deg) {
+    -webkit-transform: rotate(@deg);
+    -moz-transform:      rotate(@deg);
+    -ms-transform:       rotate(@deg);
+    -o-transform:        rotate(@deg);
+}
+.box-shadow (@string) {
+    -webkit-box-shadow: @string;
+    -moz-box-shadow:    @string;
+    box-shadow:         @string;
+}
+
+/*Chrome any
+Firefox any
+Safari any
+Opera 12.1+
+IE 10+
+iOS any
+Android any*/
+.box {	
+    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+    display: -ms-flexbox;      /* IE 10+ */
+}
+.flex(@flex: 1) {    
+    -webkit-box-flex: @flex;      /* OLD - iOS 6-, Safari 3.1-6 */
+    -moz-box-flex: @flex;         /* OLD - Firefox 19- */
+    -ms-flex: @flex;              /* IE 10+ */
+    //width: 20%;                 /* For old syntax, otherwise collapses. */
+}
+.boxPack(@pack: center) {	
+    -moz-box-pack: @pack;
+    -webkit-box-pack: @pack;
+    box-pack: @pack;
+}
+.boxAlign(@align: center) { 
+    -moz-box-align: @align;
+    -webkit-box-align: @align;
+    box-align: @align;
+}
+.boxOrient(@orient: vertical) {
+	-moz-box-orient: @orient;
+	-webkit-box-orient: @orient;
+	box-orient: @orient;
+}
+.borderbox {    
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}

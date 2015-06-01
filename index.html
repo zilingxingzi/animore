@@ -5,12 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>animore</title>
     <meta name="description" content="animore" />
-	<link rel="stylesheet" type="text/css" href="/stylesheets/reset.css">
-	<link rel="stylesheet" href="/stylesheets/animate.css">
-	<link rel="stylesheet" type="text/css" href="/stylesheets/animore.css">
-    <script src="/javascripts/libs/require.js"></script>
-    <script src="/javascripts/animore.js"></script>
-	<link href="images/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+	<link rel="stylesheet" type="text/css" href="public/stylesheets/reset.css">
+	<link rel="stylesheet" href="public/stylesheets/animate.css">
+	<link rel="stylesheet" type="text/css" href="public/stylesheets/animore.css">
+    <script src="public/javascripts/libs/require.js"></script>
+    <script src="public/javascripts/animore.js"></script>
+	<link href="public/images/favicon.ico" rel="shortcut icon" type="image/x-icon" />
   </head>
   <body>
   <div class="main">
@@ -58,7 +58,7 @@
 			<tr>
 				<td height="150">
 					<div class="copyright">
-						<img src="images/m2ux.png" alt="阿里妈妈用户体验中心" width="66" height="42">
+						<img src="public/images/m2ux.png" alt="阿里妈妈用户体验中心" width="66" height="42">
 						<p>阿里巴巴集团阿里妈妈用户体验中心</p>
 						<p>©2015</p>
 					</div>
@@ -111,7 +111,7 @@
 </div>
 <script type="text/javascript">
 	require.config({
-    baseUrl: './javascripts',
+    baseUrl: 'public/javascripts',
     //except, if the module ID starts with "app",
     //load it from the js/app directory. paths
     //config is relative to the baseUrl, and

@@ -1,41 +1,25 @@
-require.config({
-    baseUrl: 'javascripts',
-    //except, if the module ID starts with "app",
-    //load it from the js/app directory. paths
-    //config is relative to the baseUrl, and
-    //never includes a ".js" extension since
-    //the paths config could be for a directory.
-    paths: {
-        jquery: 'libs/jquery-1.8.2.min',
-        handlebars: 'libs/handlebars.min.js',
-        modernizr: 'libs/modernizr',
-        masonry: 'libs/masonry.pkgd.min',
-        cbpGridGallery: 'cbpGridGallery',
-        classie: 'libs/classie',
-        ace: 'ace/ace',
-        animore: 'animore'
-    },
-    shim: {
-        'cbpGridGallery': ['modernizr', 'masonry', 'classie'],
-        'animore': ['jquery', 'handlebars']
-    }
-});
-
 require(['jquery', 'cbpGridGallery'], function($, cbpGridGallery) {
-	$.ajax({
-		type: 'GET',
-		url: '/api/getDemoList',
-		success: function(res) {
-			if(res.info.ok) {
-				var gifs = res.data.gifs || [];
-				var tmpls = res.data.tmpls || [];
+	// 读取node返回的接口
+	// $.ajax({
+	// 	type: 'GET',
+	// 	url: '/api/getDemoList',
+	// 	success: function(res) {
+	// 		if(res.info.ok) {
+	// 			var gifs = res.data.gifs || [];
+	// 			var tmpls = res.data.tmpls || [];
 				
-    			aniList(concatStr(gifs, 'gif') + concatStr(tmpls, 'tmpl'), gifs.length + tmpls.length);
-			}
-		},
-		error: function(req, msg, obj) {
-			console.log(req, msg, obj);
-		}
+ //    			aniList(concatStr(gifs, 'gif') + concatStr(tmpls, 'tmpl'), gifs.length + tmpls.length);
+	// 		}
+	// 	},
+	// 	error: function(req, msg, obj) {
+	// 		console.log(req, msg, obj);
+	// 	}
+	// });
+	$.get('./api/getDemoList.html', function(result) {
+		result = JSON.parse(result);
+		var gifs = result.data.gifs || [];
+		var tmpls = result.data.tmpls || [];
+ 		aniList(concatStr(gifs, 'gif') + concatStr(tmpls, 'tmpl'), gifs.length + tmpls.length);
 	});
 
     //菜单栏切换
@@ -85,10 +69,10 @@ require(['jquery', 'cbpGridGallery'], function($, cbpGridGallery) {
 			// }else 
 			if(item.match(/.png$/)) {
 				if(type == 'gif') {
-					str += '<li><figure style=""><img data-type="gif" src="' + list[i] + '"><div class="layer"><div class="detail"><p class="title">点击查看大图</p><div class="line"></div><p class="text">设计：辉达</p><p class="text">开发：麦梓</p></div></div></figure><a href="javascript:void(0);" class="gifBtn"><span class="inner"><span class="btn-bg"></span><span class="text">GIF</span><i class="gifBtn-icon"></i></span></a></li>';
+					str += '<li><figure style=""><img data-type="gif" src=".' + list[i] + '"><div class="layer"><div class="detail"><p class="title">点击查看大图</p><div class="line"></div><p class="text">设计：辉达</p><p class="text">开发：麦梓</p></div></div></figure><a href="javascript:void(0);" class="gifBtn"><span class="inner"><span class="btn-bg"></span><span class="text">GIF</span><i class="gifBtn-icon"></i></span></a></li>';
 
 				}else if(type == 'tmpl') {
-					str += '<li><figure style="overflow:inherit;"><img data-type="tmpl" src="' + list[i] + '"><div class="layer animated pulse"><div class="detail"><p class="title">点击查看大图</p><div class="line"></div><p class="text">设计：辉达</p><p class="text">开发：麦梓</p></div></div></figure></li>';
+					str += '<li><figure style="overflow:inherit;"><img data-type="tmpl" src=".' + list[i] + '"><div class="layer animated pulse"><div class="detail"><p class="title">点击查看大图</p><div class="line"></div><p class="text">设计：辉达</p><p class="text">开发：麦梓</p></div></div></figure></li>';
 
 				}
 				

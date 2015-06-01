@@ -10,7 +10,7 @@ var routes = require('./routes/index');
 var app = express();
 
 var _img = require('./libs/img');
-var _tmpls = require('./libs/img');
+var _tmpls = require('./libs/tmpls');
 
 
 // view engine setup

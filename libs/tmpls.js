@@ -5,29 +5,12 @@ var path = require('path');
 // resize and remove EXIF profile data
 
 module.exports = function () {
-	console.log('~~~~~~~~~~~~~~~~开始扫描~~~')
+	console.log('-----------------开始扫描-----------------')
 	var tmpls = scanFolder(path.join(__dirname, '/../demos/tmpls'), '.html') || [];
 	var gifs = scanFolder(path.join(__dirname, '/../demos/gifs'), '.png') || [];
 	if(tmpls || gifs) {
-		fs.open(path.join(__dirname, '/../api/getDemoList.html'), w, function(e, fd) {
-			if(e) {
-				throw e;
-			}
-			fs.write(fd, res.json({
-				info: {
-					ok: true,
-					msg: null
-				},
-				data: {
-					'tmpls': tmpls,
-					'gifs': gifs
-				}
-			}), 0, 'utf-8', function (e) {
-				if(e) throw e;
-				fs.closeSync(fd);
-			});
-		});
-		return res.json({
+
+		fs.writeFileSync(path.join(__dirname, '/../api/getDemoList.html'),JSON.stringify({
 			info: {
 				ok: true,
 				msg: null
@@ -36,13 +19,10 @@ module.exports = function () {
 				'tmpls': tmpls,
 				'gifs': gifs
 			}
-		});
+		}), 'utf-8');
+		console.log('-----------------扫描成功-----------------')
 	}else {
-		return res.json({
-			info: {
-				ok: true
-			}
-		});
+		console.log('-----------------待扫描目录不存在或为空-----------------')
 	}
 
 	function scanFolder(src, filter){
